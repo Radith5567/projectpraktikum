@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toko Keripik</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Toko Keripik</h1>
+      <nav>
+        <a href="#products">Produk</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Selamat Datang di Toko Keripik Kami !!</h2>
+      <p>
+        Temukan berbagai macam jenis keripik khas dengan harga pedagang kaki
+        lima dan kualitas bintang limaa!!.
+      </p>
+    </section>
+
+    <main>
+      <section id="products">
+        <div class="products-header">
+          <h3>Berbagai Macam Produk</h3>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-category="all">Semua</button>
+          <button class="filter-btn" data-category="makanan">Makanan</button>
+
+          <button class="filter-btn" data-category="minuman">Minuman</button>
+        </div>
+
+        <div class="product-list">
+          <div class="product-card" data-category="makanan">
+            <img
+              class="foto produk"
+              src="img/pisang.jpg"
+              alt="Keripik pisang"
+            />
+
+            <div class="product-info">
+              <h4 class="product-title">Keripik Pisang Manis 150 gram</h4>
+              <p class="product-desc">
+                Cemilan yang di lengkapi dengan rasa yang gurih, manis , dan
+                maknyuss dijamin bakal ketagihan
+              </p>
+              <div class="product-price">Rp 5.000</div>
+            </div>
+          </div>
+          <div class="product-card" data-category="makanan">
+            <img class="foto produk" src="img/sukun.jpg" alt="Keripik Sukun" />
+            <div class="product-info">
+              <h4 class="product-title">Keripik Sukun 150 gram</h4>
+              <p class="product-desc">
+                Renyah, gurih, dan lezat! Keripik sukun kami dibuat dari bahan
+                pilihan, diiris tipis, dan digoreng hingga sempurna. Cocok untuk
+                camilan sehat sehari-hari.
+              </p>
+              <div class="product-price">Rp 10.000</div>
+            </div>
+          </div>
+          <div class="product-card" data-category="minuman">
+            <img class="foto produk" src="img/morenji.jpg" alt="morenji" />
+            <div class="product-info">
+              <h4 class="product-title">Morenji 250 ml</h4>
+              <p class="product-desc">
+                Segar dan menggugah selera! Perpaduan jeruk alami dengan sedikit
+                asem, cocok untuk melepas dahaga dan menjadi segar
+              </p>
+              <div class="product-price">Rp 8.000</div>
+            </div>
+          </div>
+          <div class="product-card" data-category="makanan">
+            <img
+              class="foto produk"
+              src="img/menggale.jpg"
+              alt="Keripik Menggale"
+            />
+            <div class="product-info">
+              <h4 class="product-title">Keripik Menggale 150 gram</h4>
+              <p class="product-desc">
+                Crispy dan nikmat! Keripik singkong kami diolah dengan bumbu
+                rahasia, memberikan cita rasa gurih yang bikin ketagihan.
+              </p>
+              <div class="product-price">Rp 5.000</div>
+            </div>
+          </div>
+          <div class="product-card" data-category="makanan">
+            <img
+              class="foto produk"
+              src="img/bumbai.jpg"
+              alt="Keripik Bumbai"
+            />
+            <div class="product-info">
+              <h4 class="product-title">Keripik bombai 150 gram</h4>
+              <p class="product-desc">
+                Aroma bawang putih yang menggoda! Keripik ini renyah dengan
+                sentuhan bawang putih gurih, cocok untuk pencinta rasa kuat dan
+                unik.
+              </p>
+              <div class="product-price">Rp 6.000</div>
+            </div>
+          </div>
+          <div class="product-card" data-category="minuman">
+            <img class="foto produk" src="img/teh.jpg" alt="es teh" />
+            <div class="product-info">
+              <h4 class="product-title">Es teh Poci</h4>
+              <p class="product-desc">
+                Nikmati kesegaran es teh kami! Dibuat dari teh pilihan, manisnya
+                pas, dan menyegarkan di hari panas.
+              </p>
+              <div class="product-price">Rp 3.000</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top: 6rem">
+        <form id="contactForm">
+          <h4>Kontak Kami</h4>
+          <label for="name">Nama Lengkap</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Masukkan nama lengkap Anda"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Masukkan email Anda"
+            required
+          />
+
+          <label for="message">Pesan</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tulis pesan Anda"
+            rows="4"
+            required
+          ></textarea>
+
+          <button type="submit" class="submit-btn">Kirim Pesan</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      &copy; Toko Keripik, Terimakasih sudah melihat isi Toko Keripik!!!
+    </footer>
+
+    <script>
+      // Product filter logic
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const productCards = document.querySelectorAll(".product-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          document
+            .querySelector(".filter-btn.active")
+            .classList.remove("active");
+          button.classList.add("active");
+          const category = button.getAttribute("data-category");
+
+          productCards.forEach((card) => {
+            if (
+              category === "all" ||
+              card.getAttribute("data-category") === category
+            ) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Simple contact form submission simulation
+      const contactForm = document.getElementById("contactForm");
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert(
+          `Terima kasih, ${contactForm.name.value}! Pesan Anda telah kami terima.`
+        );
+        contactForm.reset();
+      });
+    </script>
+  </body>
+</html>
